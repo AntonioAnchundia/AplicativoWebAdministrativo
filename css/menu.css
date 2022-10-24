@@ -1,0 +1,558 @@
+:root {
+    --padding: 10px;
+    --bg-color-menu: rgb(168, 51, 51);
+    --hover-color: rgb(255, 64, 64);
+    --width-menu: 16%;
+    --width-main: 84%;
+    --button-bg: #d61e1e;
+}
+
+@font-face {
+    font-family: Florentia;
+    src: url(../font-family/Florentia-Black-trial.ttf); 
+}
+
+@font-face {
+    font-family: Florentia-Extrabold;
+    src: url(../font-family/Florentia-Extrabold-trial.ttf); 
+}
+
+@font-face {
+    font-family: Florentia-parrafo;
+    src: url(../font-family/Florentia-Extralight-trial.ttf); 
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+#sidemenu {
+    height: 100vh;
+    width: var(--width-menu);
+    background-color: #b51010;
+    color: #FFF;
+    border-right: 2px solid rgb(10, 10, 10);
+}
+
+#sidemenu a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+/* ----- -----  PROFILE ----- ----- */
+#sidemenu #profile {
+    border-bottom: solid 2px #000;
+    padding: var(--padding) 0;
+    text-align: center;
+    position: relative;
+    top: 6%;
+}
+
+#sidemenu #profile #photo {
+    box-sizing: border-box;
+    padding: var(--padding);
+    margin: 0 auto;
+}
+
+#sidemenu #profile #photo img {
+    border-radius: 170px;
+    width: 85px;
+    height: 85px;
+}
+
+#sidemenu #profile #photo,
+#sidemenu #profile #name {
+    font-size: 16px;
+    padding: var(--padding) 0;
+    overflow: hidden;
+}
+/* ----- -----  ITEMS----- ----- */
+#sidemenu #menu-items {
+    overflow: hidden;
+    position: relative;
+    top: 6%;
+}
+
+#sidemenu #menu-items .item {
+    width: var(--width);
+}
+
+#sidemenu #menu-items .item .icon {
+    display: inline-block;
+}
+
+#sidemenu #menu-items .item .icon,
+#sidemenu #menu-items .item .title {
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#sidemenu #menu-items .item a {
+    display: block;
+}
+
+#sidemenu #menu-items .item a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#sidemenu #menu-items .item .icon {
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+}
+
+#sidemenu #menu-items .item .icon .bx-id-card {
+    font-size: 35px;
+}
+
+#sidemenu #menu-items .item .title {
+    padding: var(--padding) 0;
+}
+
+#sidemenu #menu-items .item.separator {
+    height: 1px;
+    border-bottom: solid 2px #000;
+}
+
+/* ----- -----  Home Administrador ----- ----- */
+.HomeAdmin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.HomeAdmin img{
+    width: auto;
+    height: 50vh;
+}
+
+/*----------------------------------------Administrador----------------------------------------*/
+
+/*Efecto en los label*/
+
+#formulario .formulario__label {
+	display: block;
+	font-weight: 820;
+	padding: 4px;
+	cursor: pointer;
+    font-family: Florentia-parrafo;
+    font-size: 15px;
+}
+
+#formulario .formulario__grupo-input {
+	position: relative;
+}
+
+#formulario .formulario__input {    
+    width: 100%;
+    border: 1px solid #000;
+	border-radius: 6px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+    font-family: Florentia-parrafo;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+#formulario .formulario__input:focus {
+	border: 2px solid #575454;
+	outline: none;
+	box-shadow: 2px 0px 30px rgba(163,163,163, 0.4);
+}
+
+/* ----- -----  Mensajes de Error ----- ----- */
+#formulario .formulario__input-error {
+	font-size: 10px;
+	margin-bottom: 0;
+    margin-top: 2px;
+    font-family: Florentia-Extrabold;
+    font-weight: lighter;
+    opacity: 0;
+}
+
+#formulario .formulario__input-error-activo {
+	display: block;
+    opacity: 1;
+}
+
+#formulario .formulario__validacion-estado {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+#formulario .formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1b1b1b;
+	opacity: 1;
+}
+
+#formulario .formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+#formulario .formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+#formulario .formulario__grupo-incorrecto .formulario__input {
+	border: 2px solid #bb2929;
+}
+
+/* ----- -----  Encabezado Administrador ----- ----- */
+
+.container {
+    width: var(--width-main);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+}
+
+.container .container-encabezado {
+    width: 100%;
+    height: 15vh;
+}
+
+.container .container-encabezado h1 {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    font-family:Florentia;
+    font-size: 35px;
+}
+
+/* ----- -----  Formulario Administrador ----- ----- */
+.formulario{
+    width: 80%;
+    height: 70vh;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.formulario .form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .3s ease;
+
+    position: absolute;
+}
+
+.details-foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.details-foto img{
+    width: 100px;
+    height: 100px;
+    border-radius: 200px;
+}
+
+.fields{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items:baseline;
+}
+
+.fields .formulario__grupo {
+    width: 33%;
+    padding: 20px;
+}
+
+.fields .formulario__grupo label {
+    color: #000;
+    padding-bottom: 10px;
+}
+
+.container-guardar{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-guardar #BtnRegistrar{
+    width: 65%;
+    height: 40px;
+    border: 2px solid #000;
+    border-radius: 6px;
+    background-color: red;
+    color: #fff;
+}
+
+/* LISTADO DE ADMINISTRADOR */
+.cuerpo-tabla{
+    /* background-color: #6d3c3c; */
+    /* width: 200px;
+    height: 200px; */
+}
+
+.cuerpo-tabla img{
+    /* background-color: #6d3c3c; */
+    width: 50px;
+    height: auto;
+    /* height: 50px; */
+    border-radius: 50%;
+}
+/*----- -----  Encabezado Universidad ----- -----*/
+.containerUniversidad {
+    width: var(--width-main);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ddd;
+}
+
+.containerUniversidad  .container-encabezadoUniversidad{
+    width: 100%;
+    height: 15vh;
+    /* background-color: #bb2929; */
+    /* margin-bottom: 10px; */
+}
+
+.container-encabezadoUniversidad h1 {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    font-family:Florentia;
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.container-encabezadoUniversidad .container-selector {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0 50px;
+    margin-top: auto ;
+}
+
+.container-encabezadoUniversidad .container-selector select {
+    border-radius: 15px;
+    border: 1px solid #000;
+    padding-left: 10px;
+    width: 150px;
+    color: #000;
+}
+
+
+/* ----- -----  Formulario Universidad ----- ----- */
+.formularioUniversidad{
+    width: 80%;
+    height: 80vh;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .formularioUniversidad .container-selector {
+    display: flex;
+    width: 100%;
+    height: 4vh;
+    justify-content: space-around;
+    padding: 0 50px;
+    margin-top: auto ;
+    background-color: #bb2929;
+
+    position: absolute;
+    top: 0;
+}
+
+.formularioUniversidad .container-selector select {
+    border-radius: 15px;
+    border: 1px solid #000;
+    padding-left: 10px;
+    width: 150px;
+    color: #000;
+} */
+
+.formularioUniversidad .form{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    transition: .3s ease;
+    position: absolute;
+    /* background-color: orange; */
+}
+
+.formularioUniversidad .form .details-foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    /* background-color: blue; */
+}
+
+.formularioUniversidad .form .details-foto img{
+    width: 100px;
+    height: 100px;
+    border-radius: 200px;
+}
+
+.formularioUniversidad .form .fields{
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items:baseline;
+    /* background-color: aqua; */
+}
+
+.formularioUniversidad .form .fields .formulario__grupo {
+    width: 33%;
+    /* padding: 20px; */
+}
+
+.formularioUniversidad .form .fields .formulario__grupo label {
+    color: #000;
+    padding-bottom: 10px;
+}
+
+
+/* SECOND */
+.formularioUniversidad .form.second{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+
+.formularioUniversidad.secActive .form.second{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.formularioUniversidad.secActive .form.first{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+}
+
+
+/* THIRD 
+.formulario .form.third{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+
+.formulario.secActive .form.third{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.formulario.secActive .form.second{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+}*/
+
+
+
+
+/* .container-siguienteBtn .nextBtn,
+.container-guardar #BtnRegistrar{
+    position: absolute;
+    right: 0;
+    bottom: 75px;
+    width: 100%;
+    border-radius: 6px;
+    border: 2px solid #000;
+    background-color: #b51010;
+    color: #fff;
+    font-weight: 600;
+} */
+
+
+/*Ventana modal para direccion*/
+/* .modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ddd;
+    display: flex;
+    pointer-events: none;
+}
+.modal--show{
+    pointer-events: unset;
+ }
+
+.modal__title{
+    font-size: 2.5rem;
+}
+
+.modal__paragraph{
+    margin-bottom: 10px;
+}
+
+.modal__container{
+    background-color: rgb(163, 157, 157);
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+}
+
+.modal__close{
+    text-decoration: none;
+    color: black;
+    padding: 1em 3em;
+    border: 1px solid;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+ 
+}
+ */

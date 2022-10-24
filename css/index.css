@@ -1,0 +1,249 @@
+:root {
+    --login-bg:rgba(0, 0, 0, 0.521);
+    --title-bg: rgb(255, 255, 255);
+    --button-bg: #d61e1e;
+    --light-red: #d61e1e;
+    --image-bg:  #fefeffc9 ;
+}
+
+@font-face {
+    font-family: Florentia;
+    src: url(../font-family/Florentia-Bold-trial.ttf); 
+}
+
+body {
+    height: 90vh;
+    font-family:Florentia ;
+    background: radial-gradient(circle, rgba(214,30,30,1) 0%, rgba(0,0,0,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-login {
+    width: 43em;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.contenedor-datos-login {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--login-bg);
+}
+
+.contenedor-imagen {
+    padding: 5rem;
+    width: 50%;
+    background-color: var(--image-bg);
+    box-sizing: border-box;
+}
+
+.txt-rol{
+    position: relative;
+    right: 80px;
+    margin-bottom: 2%;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.txt-OlvidoContra a{
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+
+.title {
+    text-transform: capitalize;
+    font-size: 1.10rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--title-bg);
+}
+
+.contenedor-inputs {
+    height: 78%;
+    width: 84%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-email, 
+.contenedor-password,
+.contenedor-select
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* background-color: red; */
+}
+
+.contenedor-email .bx-envelope,
+.contenedor-password .bx-lock-alt
+{
+    color: rgb(122, 120, 120);
+    /* margin:  0 6px; */
+    font-size: 25px;
+    position: absolute;
+    top: 13px;
+    left: 26px;
+}
+
+.contenedor-password .bx-low-vision{
+    color: rgb(122, 120, 120);
+    font-size: 20px;
+    position: absolute;
+    margin: auto 0;
+    top: 15px;
+    right: 20px;
+}
+
+.input{
+    width: 90%;
+    height: 3.10rem;
+    padding-left: 40px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    margin-bottom: 9px;
+}
+
+.contenedor-Btn{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+    /* background-color: rebeccapurple; */
+    /* justify-content: center; */
+    
+}
+
+.contenedor-Btn .input{
+    margin: 0 auto;
+}
+
+.contenedor-Btn .btn{
+    width: 90%;
+    height: 3.125rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    cursor: pointer;
+    /* margin-top: 2%; */
+    margin: 2% auto 0;
+}
+
+.input:hover {
+    border: 2px solid var(--button-bg);
+}
+
+.btn:hover{
+    border: 2px solid var(--button-bg);
+    background-color: white;
+    color:black;
+}
+
+
+.cont-Restablecer {
+    width: 43em;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/*para el restablecer contraseña*/
+.cont-datos {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--login-bg);
+    padding-top: 60px;
+}
+
+/*para el restablecer contraseña*/
+
+.texto{
+    color: #fff;
+    font-size: 13px;
+    text-align: justify;
+    padding: 0 43px;
+    line-height: 1rem;
+    position: relative;
+    bottom: 14%;
+}
+.cont-Restablecer  .title {
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--title-bg);
+    position: relative;
+    bottom: 13%;
+}
+
+.cont-Restablecer .btn:hover{
+    border: 2px solid var(--button-bg);
+    background-color: white;
+    color:black;
+
+}
+
+.contenedor-inputs p{
+    margin: 0;
+    color: #fff;    
+}
+
+/* .span {
+    color: var(--light-red);
+    font-weight: 600;
+    cursor: pointer;
+} */
+
+@media screen and (max-width: 1000px) {
+    .login-container {
+        width: 70%;
+        margin-top: 3rem;
+    }
+    .contenedor-datos-login {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .contenedor-imagen {
+        display: none;
+    }  
+}
+
+@media screen and (max-width: 650px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .login-container {
+        height: 90%;
+    }
+
+    .contenedor-datos-login > p {
+        margin: 0;
+    }
+}
