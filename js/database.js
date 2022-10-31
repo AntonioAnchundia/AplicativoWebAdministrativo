@@ -115,8 +115,6 @@ function RegistrarAdmin() {
     }
 }
 
-
-
 //funcion para limpiar el formulario
 function ResetFormularioAdmin() {
 
@@ -133,7 +131,7 @@ function ResetFormularioAdmin() {
     document.getElementById("img-foto").src = "../img/user.png"
     document.getElementById("DireccionAdmin").value = ""
 
-    //llamarDatos();
+    llamarDatos();
 
     document.getElementById("BtnActualizar").style.display = "none";
     document.getElementById("BtnRegistrar").style.display = "block";
@@ -270,7 +268,7 @@ function DeleteAdministrador(uid) {
         try {
             //establecemos la ruta de la coleccion
             database.ref('UserAdmin/' + uid).remove();
-            alert({
+            Swal.fire({
                 icon: 'success',
                 title: 'Administrador eliminado exitosamente',
                 showConfirmButton: false,

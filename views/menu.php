@@ -10,12 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/jpg" href="../img/Logo.png"/>
-
     <link rel="stylesheet" href="../css/menu.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/bd2ff69ba4.js" crossorigin="anonymous"></script>
 
-    <title>Administrador</title>
+    <title>ZERO DAY SCHOOL</title>
 </head>
 <body onload="setInput('RegistrarAdmin');">
     <input id="CurrentUserUID" type="text" value="<?php echo $_SESSION["userCurrent"] ?>" type="hidden" style="display: none;">
@@ -29,6 +28,21 @@
                 <p id="CurrentUserName"></p>
                 <p class="d-none" id="CurrentCargo"></p>
             </div>
+            <!-- <div> -->
+                <!-- CERRAR SESION -->
+                <!-- <i class='bx bx-log-out' onclick="CerrarSeson();"></i> -->
+                <!-- <a href="..index.php" onclick="CerrarSeson();">
+                    <i class='bx bx-log-out'></i>
+                </a> -->
+            <!-- </div> -->
+            <!-- <button onclick="CerrarSesion();">
+                <i class='bx bx-log-out' ></i>
+            </button> -->
+
+            <div onclick="CerrarSesion();">
+                <i class='bx bx-log-out' ></i>
+            </div>
+
         </div>
 
         <!-- ITEMS -->
@@ -41,6 +55,16 @@
             </div>
 
             <div class="item separator"></div>
+
+            <div class="item ">
+                <a href="administrador2.php?user=<?php echo $_SESSION["userCurrent"]?>" >
+                    <span class="icon"><i class='bx bx-id-card btn-hamburger'></i></span>
+                    <div class="title"><span>Administrador2</span></div>
+                </a>
+            </div>
+
+            <div class="item separator"></div>
+
 
             <div class="item">
                 <a href="universidad2.php?user=<?php echo $_SESSION["userCurrent"]?>">

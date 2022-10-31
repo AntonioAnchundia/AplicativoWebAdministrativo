@@ -128,7 +128,6 @@ body {
     align-items: center;
 }
 
-
 .HomeAdmin img{
     width: auto;
     height: 50vh;
@@ -136,7 +135,7 @@ body {
 
 /*----------------------------------------Administrador----------------------------------------*/
 
-/*Efecto en los label*/
+/*----- -----  Efecto en los label ----- -----*/
 
 #formulario .formulario__label {
 	display: block;
@@ -213,11 +212,71 @@ body {
 	border: 2px solid #bb2929;
 }
 
+/* POPUP */
+.contenedor{
+    width: 90%;
+    /* background-color: blue; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.contenedor .btn-abrir-popup{
+    color: #fff;
+	background: red;
+    cursor: pointer;
+}
+
+.overlay {
+    width: 90%;
+    height: 100vh;
+	/* background: rgba(207, 17, 17, 0.3); */
+	background: rgba(0,0,0,.3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 14%;
+	right: 0;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	visibility: hidden;
+}
+
+.overlay.active {
+	visibility: visible;
+}
+
+.popup {
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	padding: 20px;
+	text-align: center;
+	/* width: 600px; */
+	width: 70%;
+    height: 98vh;
+    /* height: 20vh; */
+    /* height: 50vh; */
+	/* transition: .3s ease all; */
+	/* transform: scale(0.7); */
+	/* opacity: 0; */
+}
+
+.popup .btn-cerrar-popup {
+	font-size: 16px;
+	line-height: 16px;
+	display: block;
+	text-align: right;
+	transition: .3s ease all;
+	color: #BBBBBB;
+}
+
 /* ----- -----  Encabezado Administrador ----- ----- */
 
 .container {
     width: var(--width-main);
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -247,7 +306,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: relative;
 }
 
@@ -259,7 +317,6 @@ body {
     justify-content: center;
     align-items: center;
     transition: .3s ease;
-
     position: absolute;
 }
 
@@ -311,20 +368,42 @@ body {
     color: #fff;
 }
 
-/* LISTADO DE ADMINISTRADOR */
+/*  ----- ----- LISTADO DE ADMINISTRADOR  ----- -----  */
+#DivlistaAdmin{
+    width: 100%;
+    /* height: 70vh; */
+    /* background-color: red; */
+}
+
+.table{
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
 .cuerpo-tabla{
-    /* background-color: #6d3c3c; */
-    /* width: 200px;
-    height: 200px; */
+    /* height: 70vh; */
+    background-color: #f4f4f4;
+}
+
+.cuerpo-tabla tr:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,.4);
 }
 
 .cuerpo-tabla img{
-    /* background-color: #6d3c3c; */
     width: 50px;
     height: auto;
-    /* height: 50px; */
     border-radius: 50%;
 }
+
+.cuerpo-tabla .bx-edit,
+.cuerpo-tabla .bx-trash{
+    /* height: 50px; */
+    border-style: none ;
+    font-size: 18px;
+    /* text-align: center; */
+    /* margin: 0 auto; */
+}
+
 /*----- -----  Encabezado Universidad ----- -----*/
 .containerUniversidad {
     width: var(--width-main);
@@ -339,8 +418,6 @@ body {
 .containerUniversidad  .container-encabezadoUniversidad{
     width: 100%;
     height: 15vh;
-    /* background-color: #bb2929; */
-    /* margin-bottom: 10px; */
 }
 
 .container-encabezadoUniversidad h1 {
@@ -407,12 +484,10 @@ body {
     width: 100%;
     height: 80vh;
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     transition: .3s ease;
     position: absolute;
-    /* background-color: orange; */
 }
 
 .formularioUniversidad .form .details-foto {
@@ -420,8 +495,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
-    /* background-color: blue; */
 }
 
 .formularioUniversidad .form .details-foto img{
@@ -438,12 +511,10 @@ body {
     box-sizing: border-box;
     justify-content: center;
     align-items:baseline;
-    /* background-color: aqua; */
 }
 
 .formularioUniversidad .form .fields .formulario__grupo {
     width: 33%;
-    /* padding: 20px; */
 }
 
 .formularioUniversidad .form .fields .formulario__grupo label {
