@@ -1,78 +1,101 @@
+const mostrarError = (error) => {
+  const cerror = document.querySelector('.error')
+  cerror.textContent = error
+  cerror.style.transform="scale(1)"
+  setTimeout(() => {    
+    cerror.style.transform="scale(0)"    
+  }, 3000)
+}
+
+// el parametro validar es un valor (true o false) para cambiar el background del error
+const mostrarErrorRecuperar = (error, validar) => {
+  const cerror = document.querySelector('.errorRecuperar')
+  cerror.textContent = error    
+  
+  cerror.style.transform="scale(1)"
+  setTimeout(() => {    
+    cerror.style.transform="scale(0)"    
+  }, 3000)
+}
+
 function Login() {
-  const signInForm = document.querySelector("#login-form");
+  const signInForm = document.querySelector("#formulario__login");
   signInForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    let email = document.getElementById("user_email").value;
-    let password = document.getElementById("user_password").value;
+    let email = document.getElementById("floatingInput").value;
+    let password = document.getElementById("campo-password-valitaion").value;  
     let combo = document.getElementById("rolUsuario");
     let rol = combo.options[combo.selectedIndex].value;
-    let mensaje = "Elija correctamente su rol";
-    let mensaje2 = "Contrasena incorrecta";
-    let mensaje3 = "El correo no se encuentra registrado, verifique su información";
-    let band = 0;
+    if(email === '' || password === ''){
+      mostrarError('Debe llenar todos los campos')
+    }else{
+      switch (rol) {
+        case "Administrador":
+          var DbAdmin = firebase.database().ref('UserAdmin');
 
-    switch (rol) {
-      case "Administrador":
-        var DbAdmin = firebase.database().ref('UserAdmin');
-        //-------------------------------------------------------------------------------------------
-        DbAdmin.once("value", (snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            let emailAdmin = childSnapshot.val().correo;
-            let passwordAdmin = childSnapshot.val().contraseña;
-            let rol = childSnapshot.val().cargo;
-            if (email == emailAdmin && password == passwordAdmin) {
-              firebase
-                .auth()
-                .signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                  var user = userCredential.user;
+          DbAdmin.once("value", (snapshot) => {
+            snapshot.forEach( (childSnapshot)  => {
+              let emailAdmin =  childSnapshot.val().correo;
+              let passwordAdmin =  childSnapshot.val().contraseña;
+              let rol = childSnapshot.val().cargo;
 
-                  window.location.href =
-                    "views/home.php?user=" + userCredential.user.uid;
-                })
-                .catch((error) => {
-                  console.log(error);
-                  var errorCode = error.code;
-                  var errorMessage = error.message;
-
-                  alert(errorMessage);
-                });
-            }
-            // }else{
-            //     alert("ACCESO DENEGADO");
-            // }
+              
+              if (email == emailAdmin && password == passwordAdmin) {
+                firebase
+                  .auth()
+                  .signInWithEmailAndPassword(email, password)
+                  .then((userCredential) => {
+                    var user = userCredential.user;
+                    window.location.href =
+                      "views/home.php?user=" + userCredential.user.uid;
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    mostrarError(errorMessage)
+                  });
+              }else{
+                  setTimeout(() => {
+                    mostrarError('Usuario o contraseña incorrectos')
+                  }, 2000);
+                 
+              }
+            });
           });
-        });
-        //Login del Rol departamento Humano--
-        break;
-      case "Recursos Humanos":
-        var DbRecurso = firebase.database().ref("UserReHum");
-        DbRecurso.once("value", (snapshot) => {
-          1;
-          snapshot.forEach((childSnapshot) => {
-            let emailAdmin = childSnapshot.val().correo;
-            let passwordAdmin = childSnapshot.val().contraseña;
-            if (email == emailAdmin && password == passwordAdmin) {
-              firebase
-                .auth()
-                .signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                  var user = userCredential.user;
-                  window.location.href =
-                    "views/homeRecursos.php?user=" + userCredential.user.uid;
-                })
-                .catch((error) => {
-                  var errorCode = error.code;
-                  var errorMessage = error.message;
-                  alert(errorMessage);
-                });
-            }
+          //Login del Rol departamento Humano--
+          break;
+        case "Recursos Humanos":
+          var DbRecurso = firebase.database().ref("UserReHum");
+          DbRecurso.once("value", (snapshot) => {
+            1;
+            snapshot.forEach((childSnapshot) => {
+              let emailAdmin = childSnapshot.val().correo;
+              let passwordAdmin = childSnapshot.val().contraseña;
+              if (email == emailAdmin && password == passwordAdmin) {
+                firebase
+                  .auth()
+                  .signInWithEmailAndPassword(email, password)
+                  .then((userCredential) => {
+                    var user = userCredential.user;
+                    window.location.href =
+                      "views/homeRecursos.php?user=" + userCredential.user.uid;
+                  })
+                  .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+                  });
+              }else{
+                mostrarError('Usuario o contraseña incorrectos')
+              }
+            });
           });
-        });
-        break;
-      default:
-        break;
-    }
+          break;
+        default:
+          break;
+      }    
+  }     
   });
 }
 
@@ -129,22 +152,18 @@ function Login() {
 // }
 
 function Reset() {
-    const contDatos = document.querySelector("#login-form");
+    const contDatos = document.querySelector(".formulario__recuperar");
     contDatos.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        const email = document.querySelector("#user_email").value;
-        let password = document.getElementById("user_password").value;
-        let combo = document.getElementById("rolUsuario");
-        let rol = combo.options[combo.selectedIndex].value;
-
+        const email = document.querySelector(".inputRecuperar").value;
         var DbAdmin = firebase.database().ref("UserAdmin");
-
-        DbAdmin.once('value', (snapshot) => {
+        if(email === ''){
+          mostrarErrorRecuperar("Ingrese el correo a recuperar", true)
+        }else{
+          DbAdmin.once('value', (snapshot) => {
             snapshot.forEach((childSnapshot) => {
                 let key = childSnapshot.key;
                 let emailAdmin = childSnapshot.val().correo;
-                let passwordAdmin = childSnapshot.val.contraseña;
                 // let rol=childSnapshot.val().cargo;
                 if (email == emailAdmin) {
 
@@ -164,27 +183,30 @@ function Reset() {
                     // });
 
 
-                        firebase.database().ref("UserAdmin/" + key).update({
-                        contraseña: password
-                    });
+                    //     firebase.database().ref("UserAdmin/" + key).update({
+                    //     contraseña: password
+                    // });
 
                     //Authenticate the user
                     auth.sendPasswordResetEmail(email).then(() => {
                         //clean the form
                         // const User = 
                         //     contDatos.reset();
-                        alert("Correo electronico de restablecimiento de contraseña enviado");
-                        window.location.href = "../index.php";
+                        mostrarErrorRecuperar("Se envio un correo a la direccion de correo ingresada", false)
+                        window.location.href = "../AplicativoWebAdministrativo/index.php";
                     }).catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
                         console.log(errorCode);
                         console.log(errorMessage);
-                        alert("correo no registrado");
+                        mostrarErrorRecuperar(errorMessage, true)
                     });
+                }else{
+                  mostrarErrorRecuperar("Correo no registrado", true)
                 }
             });
         });
+        }       
     });
 }
 
@@ -254,4 +276,3 @@ function CerrarSesion() {
           alert(error);
       });
 }
-CerrarSesion();

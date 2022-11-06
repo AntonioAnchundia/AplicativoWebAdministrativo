@@ -157,9 +157,3 @@ const validarPassword2 = () => {
 		campos['ContraseñaAdmin'] = true;
 	}
 }
-
-inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
-});
-
