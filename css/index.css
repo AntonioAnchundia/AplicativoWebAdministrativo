@@ -85,14 +85,12 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* background-color: red; */
 }
 
 .contenedor-email .bx-envelope,
 .contenedor-password .bx-lock-alt
 {
     color: rgb(122, 120, 120);
-    /* margin:  0 6px; */
     font-size: 25px;
     position: absolute;
     top: 13px;
@@ -125,9 +123,6 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
-    /* background-color: rebeccapurple; */
-    /* justify-content: center; */
-    
 }
 
 .contenedor-Btn .input{
@@ -144,7 +139,6 @@ body {
     border-radius: 5px;
     background-color: var(--button-bg);
     cursor: pointer;
-    /* margin-top: 2%; */
     margin: 2% auto 0;
 }
 
@@ -210,12 +204,6 @@ body {
     margin: 0;
     color: #fff;    
 }
-
-/* .span {
-    color: var(--light-red);
-    font-weight: 600;
-    cursor: pointer;
-} */
 
 @media screen and (max-width: 1000px) {
     .login-container {
