@@ -2,7 +2,6 @@
     include "menu.php";
 ?>
 
-
 <div class="container">
     <!-- TITULO -->
     <div class="container-encabezado">

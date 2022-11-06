@@ -26,7 +26,7 @@ function llamarDatos(subApartadoAdmin) {
                     //Llenaremos la tabla con cada consulta hecha en la tabla de "userAdmin"
                     //Cada iteracion la asignaremos en una nueva fila, y cada registro de la iteracion lo asignaremos en una celda
                           
-                    listaAdmins.innerHTML += '<tr onclick=TraerDatosAdmin("'+childKey+'");><td><img src="'+childFoto+'"></td><td><p>'+childNombre+' '+childApellido+'</p></td>'+'<td><p>' +childCorreo+ '</p></td>'+
+                    listaAdmins.innerHTML += '<tr onclick=TraerDatosAdmin("'+childKey+'");><td><img src="'+childFoto+'"></td><td><p>'+childNombre+' '+childApellido+'</p></td>'+
                         //Definimos la funcion "TraerDatos()", en esta funcion le pasamos el id de cada Administrador. Esta funcion permite llamar a los datos
                         //del administrador seleccionado para su edicion
                      '<td><button class="bx bx-edit" onclick=TraerDatosAdmin("'+childKey+'");></button>' +'<button class="bx bx-trash" onclick=DeleteAdministrador("'+childKey+'");></button></td><input type="hidden" id="'+ childKey+'"value="'+childKey+'"disabled></tr>'

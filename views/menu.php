@@ -28,17 +28,6 @@
                 <p id="CurrentUserName"></p>
                 <p class="d-none" id="CurrentCargo"></p>
             </div>
-            <!-- <div> -->
-                <!-- CERRAR SESION -->
-                <!-- <i class='bx bx-log-out' onclick="CerrarSeson();"></i> -->
-                <!-- <a href="..index.php" onclick="CerrarSeson();">
-                    <i class='bx bx-log-out'></i>
-                </a> -->
-            <!-- </div> -->
-            <!-- <button onclick="CerrarSesion();">
-                <i class='bx bx-log-out' ></i>
-            </button> -->
-
             <div onclick="CerrarSesion();">
                 <i class='bx bx-log-out' ></i>
             </div>
@@ -60,6 +49,15 @@
                 <a href="administrador2.php?user=<?php echo $_SESSION["userCurrent"]?>" >
                     <span class="icon"><i class='bx bx-id-card btn-hamburger'></i></span>
                     <div class="title"><span>Administrador2</span></div>
+                </a>
+            </div>
+
+            <div class="item separator"></div>
+
+            <div class="item ">
+                <a href="administrador3.php?user=<?php echo $_SESSION["userCurrent"]?>" >
+                    <span class="icon"><i class='bx bx-id-card btn-hamburger'></i></span>
+                    <div class="title"><span>Administrador3</span></div>
                 </a>
             </div>
 
