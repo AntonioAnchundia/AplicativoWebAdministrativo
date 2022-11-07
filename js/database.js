@@ -36,6 +36,7 @@ function RegistrarAdmin() {
 
     } else {
         try {
+
             if (AdminData[5] == AdminData[6]) { //LAS CONTRASEÑAS COINCIDEN
                 try {
                     //SUBIR IMAGEN A FIRESTORE
@@ -523,6 +524,92 @@ function ResetFormularioUniversidad() {
     document.getElementById("BtnActualizar").style.display = "none"
     document.getElementById("BtnRegistrar").style.display = "block"
 }
+
+
+//----------------Registrar Departamento--------------------------// 
+function RegistrarDep(){
+    var errorRegistro = false;
+
+    var ficheroDep = document.getElementById("file"); //variable para el cargado de la imagen
+    var ReferenciaDB = firebase.storage().ref();
+    var iterador = null;
+    
+
+    let DepData = [ //almacenar en un arreglo temporal y defino el orden en el que los datos se van a almacenar
+        document.getElementById("NombreDep").value, //0
+        document.getElementById("CodigoDep").value, //1
+        document.getElementById("LinkReunionDep").value, //2
+        document.getElementById("NumeroPersonalDep").value, //3
+        document.getElementById("img-foto").src, //4
+    ]
+    //validacion para verificar campos vacios
+    DepData.forEach(function (item, index, array) {
+        if (item == "" || item == null) {
+            iterador = 1;
+        } else { }
+    });
+    if (iterador == 1) {
+        alert("Campos vacios", "", "warning");
+        errorRegistro = true;
+    }else{
+        try{
+            //SUBIR IMAGEN A FIRESTORE
+            if (ficheroDep.files[0].size <= MAX_FILE_SIZE) {
+                var imgaSubir = ficheroDep.files[0]; //se toma el primer archivo que seleccionamos en nuestro equipo
+                var uploadTask = ReferenciaDB.child('/fotoDep/' + imgaSubir.name).put(imgaSubir);
+                uploadTask.on('state_changed', function (snapshot) {
+                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log('Upload is ' + progress + '% done');
+                    switch (snapshot.state) {
+                        case firebase.storage.TaskState.PAUSED: // or 'paused'
+                            console.log('Upload is paused');
+                            break;
+                        case firebase.storage.TaskState.RUNNING: // or 'running'
+                            console.log('Upload is running');
+                            break;
+                    }
+                    if (progress == 100) {
+                        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+
+                            firebase.database().ref('Departamento/').set({
+                                NombreDep: DepData[0],
+                                CodigoDep: DepData[1],
+                                LinkReunionDep: DepData[2],
+                                NumeroPersonalDep: DepData[3],
+                                foto: downloadURL
+                            }).catch((error) => {
+                                Swal.fire(error.code, "", "error");
+                                Swal.fire(error.message, "", "error");
+                                errorRegistro = true;
+                            });
+                        });
+                    }
+                }, function (error) {
+                    alert(error)
+                }, function () { });
+            }else{
+                Swal.fire("El peso máximo del archivos es de 150KB", "warning");
+                errorRegistro = true;
+            }
+        }catch(error){
+            console.log(error.code);
+            console.log(error.message);
+            errorRegistro = true;
+        }
+    }
+    if(!errorRegistro){
+        Swal.fire({
+            icon: 'success',
+            title: "Departamento registrado con éxito",
+            showConfirmButton: false,
+            timer: 2000
+        })
+        alert("Registrado Exitosamente");
+        //llamamos a la funcion para limpiar el formulario
+        ResetFormularioAdmin();
+    }
+}
+
 
 //----------------Registrar Supervisor--------------------------// 
 function RegistrarSupervisor() {

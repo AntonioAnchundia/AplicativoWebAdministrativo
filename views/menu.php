@@ -36,7 +36,7 @@
 
         <!-- ITEMS -->
         <div id="menu-items">
-            <div class="item ">
+            <!-- <div class="item ">
                 <a href="administrador.php?user=<?php echo $_SESSION["userCurrent"]?>" >
                     <span class="icon"><i class='bx bx-id-card btn-hamburger'></i></span>
                     <div class="title"><span>Administrador</span></div>
@@ -52,17 +52,27 @@
                 </a>
             </div>
 
-            <div class="item separator"></div>
+            <div class="item separator"></div> -->
 
             <div class="item ">
                 <a href="administrador3.php?user=<?php echo $_SESSION["userCurrent"]?>" >
                     <span class="icon"><i class='bx bx-id-card btn-hamburger'></i></span>
-                    <div class="title"><span>Administrador3</span></div>
+                    <div class="title"><span>Administrador </span></div>
                 </a>
             </div>
 
             <div class="item separator"></div>
 
+            <div class="item">
+                <a href="departamento.php?user=<?php echo $_SESSION["userCurrent"]?>">
+                    <span class="icon"><i class='bx bx-id-card'></i></span>
+                    <div class="title">
+                        <span> Departamento</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item separator"></div>
 
             <div class="item">
                 <a href="universidad2.php?user=<?php echo $_SESSION["userCurrent"]?>">
@@ -74,5 +84,7 @@
             </div>
 
             <div class="item separator"></div>
+
+            
         </div>
     </nav>

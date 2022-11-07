@@ -35,6 +35,11 @@ function llamarDatos(subApartadoAdmin) {
                     })
             });
             break;
+
+            //Departamento
+            case "RegistrarDep":
+
+                ref = database.ref('Departamento');
             //demas casos como universidad
             default:
             break;

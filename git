@@ -1,0 +1,30 @@
+[33mcommit de7b54e4da41fb28e66c88f7c11c4a482da57d6a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 2ca3c6d f4a7819
+Author: DanielDeveloper08 <danielprogramando2000@gmail.com>
+Date:   Sun Nov 6 18:49:34 2022 -0500
+
+    Merge branch 'main' of https://github.com/AntonioAnchundia/AplicativoWebAdministrativo
+
+[33mcommit 2ca3c6d5776c8dac2da1761643fa8af5cbfec75c[m
+Author: DanielDeveloper08 <danielprogramando2000@gmail.com>
+Date:   Sun Nov 6 18:30:36 2022 -0500
+
+    Login y recuperar contrasena listo
+
+[33mcommit f4a7819e7f1a88fd871c6ceb5c722a8c5a50580b[m
+Author: Antonio Anchundia <antonio-alex13@outlook.com>
+Date:   Sun Nov 6 12:03:36 2022 -0500
+
+    merge
+
+[33mcommit 792ff5f590f024241da61ab98ab5929ce3e7e1c7[m
+Author: Antonio Anchundia <antonio-alex13@outlook.com>
+Date:   Mon Oct 31 08:55:12 2022 -0500
+
+    Actualizacion del auth, database, administrador
+
+[33mcommit ef90dd4dd9e0b02fc01b445ec9555ce3a1473b2a[m
+Author: AntonioAnchundia <85653921+AntonioAnchundia@users.noreply.github.com>
+Date:   Mon Oct 24 14:27:55 2022 -0500
+
+    Add files via upload
